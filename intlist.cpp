@@ -63,7 +63,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    return (0.0 + IntList::sum()) / IntList::count();
+    return (count() != 0) ? (0.0 + sum()) / count() : 0;
 }
 
 // inserts value as new node at beginning of list

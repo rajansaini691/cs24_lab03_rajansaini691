@@ -44,6 +44,11 @@ bool IntList::contains(int value) const {
 
 // returns maximum value in list, or 0 if empty list
 int IntList::max() const {
+    // Check for empty list
+    if(first == 0) {
+	return 0
+    }
+
     int maxVal = first->info;
     
     for(Node *n = first; n != 0; n = n->next) {

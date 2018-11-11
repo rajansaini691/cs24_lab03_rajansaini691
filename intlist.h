@@ -28,13 +28,14 @@ public:
 
 private:
 
-    // (Optional) You can add some private helper functions here.
-
     // definition of Node structure (DO NOT CHANGE):
     struct Node {
         int info;
         Node *next;
     };
+
+    // (Optional) You can add some private helper functions here.
+    void deleteList(Node* n) const;
 
     Node *first; // pointer to first node (DO NOT CHANGE):
 };

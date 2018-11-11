@@ -9,12 +9,33 @@ using std::cout;
 
 // copy constructor
 IntList::IntList(const IntList& source) {
-    //IMPLEMENT THIS
+    first = 0;
+    for(Node* s = source.first; s != 0; s = s->next) {
+		append(s->info);
+    }
+    
 }
 
 // destructor deletes all nodes
 IntList::~IntList() {
-    //IMPLEMENT THIS
+	deleteList(first);	
+}
+
+// Deletes the entire list recursively. Recursion is preferred since it makes
+// reverse traversal easier. 
+void IntList::deleteList(Node* n) const {
+	// Takes an empty list into account
+	if(n == NULL) {
+		return;
+	}
+
+	if(n->next == NULL) {
+		delete n;
+		return;
+	} else {
+		deleteList(n->next);
+	}
+	delete n;
 }
 
 
@@ -77,7 +98,16 @@ void IntList::insertFirst(int value) {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    //IMPLEMENT
+    deleteList(first);
+
+    first = 0;
+    
+    for(Node* s = source.first; s != NULL; s = s->next) {
+	append(s->info);
+    }
+
+    cout << "Succeeded \n";
+
     return *this;
 }
 

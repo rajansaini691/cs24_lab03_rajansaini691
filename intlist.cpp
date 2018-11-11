@@ -106,8 +106,6 @@ IntList& IntList::operator=(const IntList& source){
 	append(s->info);
     }
 
-    cout << "Succeeded \n";
-
     return *this;
 }
 

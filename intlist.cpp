@@ -46,7 +46,7 @@ bool IntList::contains(int value) const {
 int IntList::max() const {
     // Check for empty list
     if(first == 0) {
-	return 0
+	return 0;
     }
 
     int maxVal = first->info;
@@ -63,7 +63,7 @@ int IntList::max() const {
 // returns average (arithmetic mean) of all values, or
 // 0 if list is empty
 double IntList::average() const {
-    return 0.0; // REPLACE THIS NON-SOLUTION
+    return (0.0 + IntList::sum()) / IntList::count();
 }
 
 // inserts value as new node at beginning of list

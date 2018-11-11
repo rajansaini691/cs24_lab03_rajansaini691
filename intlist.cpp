@@ -20,7 +20,7 @@ IntList::~IntList() {
 
 // return sum of values in list
 int IntList::sum() const {
-	Node n = first; 
+	Node *n = first; 
 	int sum = 0;
 
 	while(n) {
@@ -33,7 +33,13 @@ int IntList::sum() const {
 
 // returns true if value is in the list; false if not
 bool IntList::contains(int value) const {
-    return false; // REPLACE THIS NON-SOLUTION
+    for(Node *n = first; n != 0; n = n->next) {
+	    if(value == n->info) {
+		    return true;
+	    }
+    }
+
+    return false; 
 }
 
 // returns maximum value in list, or 0 if empty list

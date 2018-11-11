@@ -36,6 +36,7 @@ private:
 
     // (Optional) You can add some private helper functions here.
     void deleteList(Node* n) const;
+    void deleteListIter() const;
 
     Node *first; // pointer to first node (DO NOT CHANGE):
 };

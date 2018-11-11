@@ -18,11 +18,10 @@ IntList::IntList(const IntList& source) {
 
 // destructor deletes all nodes
 IntList::~IntList() {
-	deleteList(first);	
+	deleteListIter();
 }
 
-// Deletes the entire list recursively. Recursion is preferred since it makes
-// reverse traversal easier. 
+// Deletes the entire list recursively.
 void IntList::deleteList(Node* n) const {
 	// Takes an empty list into account
 	if(n == NULL) {
@@ -36,6 +35,18 @@ void IntList::deleteList(Node* n) const {
 		deleteList(n->next);
 	}
 	delete n;
+}
+
+// Deletes the entire list iteratively
+void IntList::deleteListIter() const {
+	Node* next = NULL;
+	Node* curr = first;
+	bool run = true;
+	while(curr) {
+		next = curr->next;
+		delete curr;
+		curr = next;
+	}
 }
 
 
@@ -98,7 +109,7 @@ void IntList::insertFirst(int value) {
 //Assignment operator should copy the list from the source
 //to this list, deleting/replacing any existing nodes
 IntList& IntList::operator=(const IntList& source){
-    deleteList(first);
+    deleteListIter();
 
     first = 0;
     
